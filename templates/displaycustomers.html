@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    {% for customer in Customers %}
+    <!--from bootstrap-->
+    <div class="col">
+        <form action="/delcustomer" method="POST">  <!-- POST מעביר נתונים-->
+        <div class="card border-primary mb-3">
+            <img src="https://picsum.photos/400/30{{loop.index}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ customer.name}} ,customer number {{loop.index}}</h5>
+                <p class="card-text">Tel: {{ customer.tel}} id{{ customer.id}} </p>
+                <input name="customerid" value="{{ customer.id}}" style="width:30px;">
+                <button type="button" class="btn btn-link">Details</button>  <!-- not work yet-->
+                <input type="submit" class="btn btn-danger" value=Delete>               
+                <!-- <a href="/dispalynice" class="btn btn-success">Success</a> -->
+            </div>
+        </div>
+    </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

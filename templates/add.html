@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Add new customer - {{msg}}</h1>
+<form action="/adddata" method="POST">  <!--שולח את הנתונים הבאים לכתובת הזאת-->
+Name:<input name="name" required>
+Tel:<input name="tel">
+<input type="submit">
+
+
+</form>
+
+{% endblock %}
